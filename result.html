@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Resultado</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #F6F6F6;
+            margin: 0;
+            padding: 2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .result-container {
+            background-color: #000000;
+            border-radius: 1rem;
+            border-color: #22D4FD;
+            padding: 2rem;
+            box-shadow: 0 4px 8px #22D4FD;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .result-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Informações do Formulário</h2>
+        <p><strong>Nome de Usuário:</strong> <span id="result-nome"></span></p>
+        <p><strong>Descrição:</strong> <span id="result-descricao"></span></p>
+        <p><strong>Foto:</strong></p>
+        <img id="result-foto" class="result-image" alt="Foto">
+    </div>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                nome: params.get('nome'),
+                descricao: params.get('descricao'),
+                foto: params.get('foto')
+            };
+        }
+
+        const { nome, descricao, foto } = getQueryParams();
+
+        document.getElementById('result-nome').textContent = nome;
+        document.getElementById('result-descricao').textContent = descricao;
+
+        if (foto) {
+            try {
+                const decodedFotoURL = decodeURIComponent(foto);
+                console.log('Imagem URL:', decodedFotoURL); // Log para verificar a URL
+                document.getElementById('result-foto').src = decodedFotoURL;
+            } catch (e) {
+                console.error('Erro ao definir o src da imagem:', e);
+            }
+        }
+    </script>
+</body>
+</html>

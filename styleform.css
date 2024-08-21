@@ -1,0 +1,93 @@
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #F6F6F6;
+    --cor-terciaria: #22D4FD;
+    --cor-hover: #272727;
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    margin: 0;
+    padding: 1rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.inicio {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.caixa-form {
+    background-color: var(--cor-terciaria);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    border: 2px solid var(--cor-terciaria);
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: var(--cor-primaria);
+}
+
+input[type="text"], input[type="file"], textarea, button[type="submit"] {
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--cor-primaria);
+    transition: all 0.2s ease;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+}
+
+input[type="file"], button[type="submit"] {
+    width: auto;
+}
+
+input[type="text"]:focus, textarea:focus, input[type="file"]:hover, button[type="submit"]:hover {
+    border-color: var(--cor-terciaria);
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+/* Responsive Design */
+@media (min-width: 576px) { /* Extra small devices (phones, 576px and up) */
+    .caixa-form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) { /* Medium devices (tablets, 768px and up) */
+    .caixa-form {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 992px) { /* Large devices (desktops, 992px and up) */
+    .caixa-form {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 576px) { /* Small devices (phones, less than 576px) */
+    .inicio {
+        margin-left: 0;
+    }
+
+    .form {
+        font-size: 0.9rem;
+    }
+}

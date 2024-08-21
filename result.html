@@ -38,29 +38,30 @@
         <img id="result-foto" class="result-image" alt="Foto">
     </div>
     <script>
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                nome: params.get('nome'),
-                descricao: params.get('descricao'),
-                foto: params.get('foto')
-            };
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Recupera os dados do sessionStorage
+            const nome = sessionStorage.getItem('nome');
+            const descricao = sessionStorage.getItem('descricao');
+            const foto = sessionStorage.getItem('foto');
 
-        const { nome, descricao, foto } = getQueryParams();
+            // Exibe os dados na página
+            document.getElementById('result-nome').textContent = `Nome: ${nome}`;
+            document.getElementById('result-descricao').textContent = `Descrição: ${descricao}`;
 
-        document.getElementById('result-nome').textContent = nome;
-        document.getElementById('result-descricao').textContent = descricao;
-
-        if (foto) {
-            try {
-                const decodedFotoURL = decodeURIComponent(foto);
-                console.log('Imagem URL:', decodedFotoURL); // Log para verificar a URL
-                document.getElementById('result-foto').src = decodedFotoURL;
-            } catch (e) {
-                console.error('Erro ao definir o src da imagem:', e);
+            if (foto) {
+                // Define o src da imagem com a URL armazenada
+                document.getElementById('result-foto').src = foto;
+            } else {
+                // Oculta a imagem se não houver
+                document.getElementById('result-foto').style.display = 'none';
             }
-        }
+
+            // Limpa os dados do sessionStorage
+            sessionStorage.removeItem('nome');
+            sessionStorage.removeItem('descricao');
+            sessionStorage.removeItem('foto');
+        });
+    </script>
     </script>
 </body>
 </html>

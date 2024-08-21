@@ -62,27 +62,20 @@ input[type="text"]:focus, textarea:focus, input[type="file"]:hover, button[type=
     color: var(--cor-secundaria);
 }
 
-/* Responsive Design */
-@media (min-width: 576px) { /* Extra small devices (phones, 576px and up) */
-    .caixa-form {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-}
 
-@media (min-width: 768px) { /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
     .caixa-form {
         max-width: 600px;
     }
 }
 
-@media (min-width: 992px) { /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
     .caixa-form {
         max-width: 700px;
     }
 }
 
-@media (max-width: 576px) { /* Small devices (phones, less than 576px) */
+@media (max-width: 576px) { 
     .inicio {
         margin-left: 0;
     }
